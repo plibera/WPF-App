@@ -5,9 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:wpf_piotr_libera.Views"
              mc:Ignorable="d" 
-             Height="400" Width="700">
-    <DockPanel>
-        <Menu DockPanel.Dock="Top">
+             MinHeight="400" MinWidth="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
             <MenuItem Header="Edit shapes">
                 <MenuItem Header="Add shape" Command="{Binding Path=AddCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
                 <MenuItem Header="Edit shape" Command="{Binding Path=EditCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
@@ -17,7 +23,7 @@
                 <MenuItem Header="New window" Command="{Binding Path=NewWindowCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
             </MenuItem>
         </Menu>
-        <ToolBarTray DockPanel.Dock="Top">
+        <ToolBarTray Grid.Row="1">
             <ToolBar>
                 <Button Content="Add" Command="{Binding Path=AddCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
                 <Button Content="Edit" Command="{Binding Path=EditCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
@@ -26,7 +32,7 @@
                 <TextBox Height="22" Margin="0" TextWrapping="Wrap" Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
             </ToolBar>
         </ToolBarTray>
-        <ListView x:Name="ShapesListView" ItemsSource="{Binding Shapes}" SelectedItem="{Binding SelectedShape, Mode=TwoWay}" Margin="0,0,0,0.4" Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="ShapesListView_SelectionChanged">
+        <ListView x:Name="ShapesListView" ItemsSource="{Binding Shapes}" SelectedItem="{Binding SelectedShape, Mode=TwoWay}" Margin="0,0,0,0.4" Grid.Row="2" SelectionChanged="ShapesListView_SelectionChanged">
             <ListView.ContextMenu>
                 <ContextMenu Name="cm">
                     <MenuItem Header="Add shape" Command="{Binding Path=AddCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
@@ -36,14 +42,19 @@
             </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Color" DisplayMemberBinding="{Binding Color}"/>
-                    <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type}"/>
-                    <GridViewColumn Header="X Coordinate" DisplayMemberBinding="{Binding XCoordinate}"/>
-                    <GridViewColumn Header="Y Coordinate" DisplayMemberBinding="{Binding YCoordinate}"/>
-                    <GridViewColumn Header="Area" DisplayMemberBinding="{Binding Area}"/>
-                    <GridViewColumn Header="Text" DisplayMemberBinding="{Binding Text}"/>
+                    <GridViewColumn Header="Color" Width="80" DisplayMemberBinding="{Binding Color}"/>
+                    <GridViewColumn Header="Type" Width="80" DisplayMemberBinding="{Binding Type}"/>
+                    <GridViewColumn Header="X Coordinate" Width="80" DisplayMemberBinding="{Binding XCoordinate}"/>
+                    <GridViewColumn Header="Y Coordinate" Width="80" DisplayMemberBinding="{Binding YCoordinate}"/>
+                    <GridViewColumn Header="Area" Width="80" DisplayMemberBinding="{Binding Area}"/>
+                    <GridViewColumn Header="Text" Width="200" DisplayMemberBinding="{Binding Text}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-    </DockPanel>
+        <StatusBar Height="20" Grid.Row="3">
+            <StatusBarItem>
+                <TextBlock Name="ItemCount"  Text="{Binding ItemCount}"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
 </UserControl>

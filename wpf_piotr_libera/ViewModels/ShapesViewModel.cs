@@ -36,6 +36,13 @@ namespace wpf_piotr_libera.ViewModels
             }
         }
 
+        private string itemCount;
+        public string ItemCount
+        {
+            get { return itemCount; }
+            set { itemCount = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ItemCount")); }
+        }
+
         private string filterText = "";
         public string FilterText
         {
@@ -65,6 +72,11 @@ namespace wpf_piotr_libera.ViewModels
             return shape.Text.Contains(FilterText) || shape.Color.Contains(FilterText);
         }
 
+        public void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            ItemCount = Shapes.Cast<object>().Count().ToString();
+        }
+
         public Action Close { get; set; }
         private RelayCommand<object> addCommand;
         public RelayCommand<object> AddCommand => (addCommand = addCommand ?? new RelayCommand<object>(o => AddShape()));
@@ -86,6 +98,8 @@ namespace wpf_piotr_libera.ViewModels
             };
             collectionViewSource.View.Filter = (o) => FilterShape((Shape)o);
             Shapes = collectionViewSource.View;
+            ItemCount = Shapes.Cast<object>().Count().ToString();
+            Shapes.CollectionChanged += this.OnCollectionChanged;
         }
 
         public void NewWindow()

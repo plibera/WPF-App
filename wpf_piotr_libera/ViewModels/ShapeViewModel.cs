@@ -38,6 +38,7 @@ namespace wpf_piotr_libera.ViewModels
         {
             ShapesModel = shapesModel;
             Shape = shape;
+            Type = "Triangle";
             if (Shape != null)
             {
                 Color = Shape.Color;
