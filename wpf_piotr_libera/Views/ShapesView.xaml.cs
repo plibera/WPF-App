@@ -13,16 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace wpf_piotr_libera
+namespace wpf_piotr_libera.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ShapesView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ShapesView : UserControl
     {
-        public MainWindow()
+        public ShapesView()
         {
             InitializeComponent();
+        }
+
+        private void ShapesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -2,8 +2,18 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:wpf_piotr_libera"
-             StartupUri="MainWindow.xaml">
+             xmlns:t="clr-namespace:wpf_piotr_libera.ViewModels"
+             xmlns:k="clr-namespace:wpf_piotr_libera.Views">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type t:ShapesViewModel}">
+                <k:ShapesView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type t:ShapeViewModel}">
+                <k:ShapeView/>
+            </DataTemplate>
+            <!-- Dummy Style, anything you won't use goes -->
+            <Style TargetType="{x:Type Rectangle}" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
