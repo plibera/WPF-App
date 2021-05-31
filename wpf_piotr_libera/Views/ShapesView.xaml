@@ -6,10 +6,15 @@
              xmlns:local="clr-namespace:wpf_piotr_libera.Views"
              mc:Ignorable="d" 
              MinHeight="100" MinWidth="100">
+    <UserControl.Resources>
+        <BitmapImage x:Key="PlusImage" UriSource="../icons/plus.png" />
+        <BitmapImage x:Key="EditImage" UriSource="../icons/edit.png" />
+        <BitmapImage x:Key="XImage" UriSource="../icons/x.png" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
-            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="1*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
@@ -25,11 +30,31 @@
         </Menu>
         <ToolBarTray Grid.Row="1">
             <ToolBar>
-                <Button Content="Add" Command="{Binding Path=AddCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
-                <Button Content="Edit" Command="{Binding Path=EditCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
-                <Button Content="Delete" Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
-                <Button Content="New window" Command="{Binding Path=NewWindowCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
-                <TextBox Height="22" Margin="0" TextWrapping="Wrap" Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+                <Button Margin="2, 0, 2, 0" Command="{Binding Path=AddCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}">
+                    <StackPanel Height="Auto" Orientation="Vertical">
+                        <Image Margin="5, 0, 5, 0" Source="{StaticResource PlusImage}" Width="24" Height="24" Stretch="Fill"/>
+                        <TextBlock Text="Add" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="12" />
+                    </StackPanel>
+                </Button>
+                <Button Margin="2, 0, 2, 0" Command="{Binding Path=EditCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}">
+                    <StackPanel Height="Auto" Orientation="Vertical">
+                        <Image Margin="5, 0, 5, 0" Source="{StaticResource EditImage}" Width="24" Height="24" Stretch="Fill"/>
+                        <TextBlock Text="Edit" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="12" />
+                    </StackPanel>
+                </Button>
+                <Button Margin="2, 0, 2, 0" Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}">
+                    <StackPanel Height="Auto" Orientation="Vertical">
+                        <Image Source="{StaticResource XImage}" Width="24" Height="24" Stretch="Fill"/>
+                        <TextBlock Text="Delete" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="12" />
+                    </StackPanel>
+                </Button>
+                <Button Margin="2, 0, 2, 0" Command="{Binding Path=NewWindowCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}">
+                    <StackPanel Height="Auto" Orientation="Vertical">
+                        <Image Source="{StaticResource PlusImage}" Width="24" Height="24" Stretch="Fill"/>
+                        <TextBlock Text="New window" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="12" />
+                    </StackPanel>
+                </Button>
+                <TextBox Height="22" Margin="0" TextWrapping="Wrap" Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="120"/>
             </ToolBar>
         </ToolBarTray>
         <ListView x:Name="ShapesListView" ItemsSource="{Binding Shapes}" SelectedItem="{Binding SelectedShape, Mode=TwoWay}" Margin="0,0,0,0.4" Grid.Row="2" SelectionChanged="ShapesListView_SelectionChanged">
