@@ -56,6 +56,12 @@ namespace wpf_piotr_libera.ViewModels
         }
         bool FilterShape(Shape shape)
         {
+            if (shape.Text is null && shape.Color is null)
+                return FilterText == "";
+            if(shape.Text is null)
+                return shape.Color.Contains(FilterText);
+            if (shape.Color is null)
+                return shape.Text.Contains(FilterText);
             return shape.Text.Contains(FilterText) || shape.Color.Contains(FilterText);
         }
 

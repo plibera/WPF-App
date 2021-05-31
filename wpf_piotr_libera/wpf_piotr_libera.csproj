@@ -59,6 +59,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Models\Validation\ColorRule.cs" />
+    <Compile Include="Models\Validation\NumericRule.cs" />
     <Compile Include="ViewModels\ShapesViewModel.cs" />
     <Compile Include="ViewModels\ShapeViewModel.cs" />
     <Compile Include="Views\ShapesView.xaml.cs">

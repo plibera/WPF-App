@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using wpf_piotr_libera.Models;
 using wpf_piotr_libera.MVVM;
 
 namespace wpf_piotr_libera.ViewModels
 {
-    public class ShapeViewModel : MVVM.IViewModel
+    public class ShapeViewModel : MVVM.IViewModel, INotifyPropertyChanged
     {
         private ShapesModel ShapesModel { get; }
         private Shape Shape { get; }
         public Action Close { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public string Color { get; set; }
         public string Type { get; set; }
@@ -66,5 +69,29 @@ namespace wpf_piotr_libera.ViewModels
             Close?.Invoke();
         }
         public void Cancel() => Close?.Invoke();
+    }
+
+
+    public class InverseAndBooleansToBooleanConverter : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            if (values.LongLength > 0)
+            {
+                foreach (var value in values)
+                {
+                    if (value is bool && (bool)value)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
