@@ -8,7 +8,7 @@ namespace wpf_piotr_libera.MVVM
 {
     public interface IWindowService
     {
-        void Show(IViewModel viewModel);
-        void ShowDialog(IViewModel viewModel);
+        void Show(IViewModel viewModel, double minWidth = 0, double minHeight = 0);
+        void ShowDialog(IViewModel viewModel, double minWidth = 0, double minHeight = 0);
     }
 }

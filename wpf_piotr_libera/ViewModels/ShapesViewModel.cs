@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,13 +85,13 @@ namespace wpf_piotr_libera.ViewModels
         public void NewWindow()
         {
             ShapesViewModel shapesViewModel = new ShapesViewModel(ShapesModel);
-            ((App)Application.Current).WindowService.Show(shapesViewModel);
+            ((App)Application.Current).WindowService.Show(shapesViewModel, 300, 200);
         }
 
         public void AddShape()
         {
             ShapeViewModel shapeViewModel = new ShapeViewModel(ShapesModel, null);
-            ((App)Application.Current).WindowService.ShowDialog(shapeViewModel);
+            ((App)Application.Current).WindowService.ShowDialog(shapeViewModel, 280, 280);
         }
 
         public void EditShape(Shape shape)

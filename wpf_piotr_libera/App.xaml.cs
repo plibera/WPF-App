@@ -20,7 +20,7 @@ namespace wpf_piotr_libera
         {
             base.OnStartup(e);
             wpf_piotr_libera.ViewModels.ShapesViewModel shapesViewModel = new wpf_piotr_libera.ViewModels.ShapesViewModel(ShapesModel);
-            WindowService.Show(shapesViewModel);
+            WindowService.Show(shapesViewModel, 300, 200);
         }
     }
 }

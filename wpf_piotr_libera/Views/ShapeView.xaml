@@ -4,22 +4,41 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:wpf_piotr_libera.Views"
-             mc:Ignorable="d" 
-             Height="240" Width="300">
-    <Grid>
-        <Label Content="Color" Margin="10,10,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label Content="Type" Margin="10,41,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label Content="X Coordinate" Margin="10,72,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label Content="Y Coordinate" Margin="10,103,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label Content="Area" Margin="10,134,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label Content="Text" Margin="10,165,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,13,0,0" TextWrapping="Wrap" Text="{Binding Color}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,44,0,0" TextWrapping="Wrap" Text="{Binding Type}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,75,0,0" TextWrapping="Wrap" Text="{Binding XCoordinate}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,106,0,0" TextWrapping="Wrap" Text="{Binding YCoordinate}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,137,0,0" TextWrapping="Wrap" Text="{Binding Area}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,168,0,0" TextWrapping="Wrap" Text="{Binding Text}" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Ok" Command="{Binding Path=OkCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Left" Margin="59,211,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Cancel" Command="{Binding Path=CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Left" Margin="177,211,0,0" VerticalAlignment="Top" Width="75"/>
+             mc:Ignorable="d">
+    <Grid MinHeight="232" MinWidth="260">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="85" />
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32*" />
+            <RowDefinition Height="32*" />
+            <RowDefinition Height="32*" />
+            <RowDefinition Height="32*" />
+            <RowDefinition Height="32*" />
+            <RowDefinition Height="32*" />
+            <RowDefinition Height="40*" />
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="Color"  Height="26" VerticalAlignment="Center" HorizontalAlignment="Right" Width="38"/>
+        <Label Grid.Column="0" Grid.Row="1" Content="Type" Height="26" VerticalAlignment="Center" HorizontalAlignment="Right" Width="35"/>
+        <Label Grid.Column="0" Grid.Row="2" Content="X Coordinate" Height="26" VerticalAlignment="Center" HorizontalAlignment="Right" Width="80"/>
+        <Label Grid.Column="0" Grid.Row="3" Content="Y Coordinate" Height="26" VerticalAlignment="Center" HorizontalAlignment="Right" Width="78"/>
+        <Label Grid.Column="0" Grid.Row="4" Content="Area" Height="26" VerticalAlignment="Center" HorizontalAlignment="Right" Width="34"/>
+        <Label Grid.Column="0" Grid.Row="5" Content="Text" Height="26" VerticalAlignment="Center" HorizontalAlignment="Right" Width="30"/>
+        <TextBox Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Height="23" VerticalAlignment="Center" Text="{Binding Color}" Margin="5,0,10,0"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Height="23" Margin="5, 0, 10, 0" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding Type}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Height="23" Margin="5, 0, 10, 0" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding XCoordinate}"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Height="23" Margin="5, 0, 10, 0" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding YCoordinate}"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Height="23" Margin="5, 0, 10, 0" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding Area}"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Height="23" Margin="5, 0, 10, 0" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding Text}"/>
+
+        <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"  Content="Ok" Command="{Binding Path=OkCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Center" Margin="0, 0, 10, 0" VerticalAlignment="Center" Width="75" Height="19"/>
+            <Button Grid.Column="1"  Content="Cancel" Command="{Binding Path=CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Center" Margin="10, 0, 0, 0" VerticalAlignment="Center" Width="75" Height="19"/>
+        </Grid>
     </Grid>
 </UserControl>
