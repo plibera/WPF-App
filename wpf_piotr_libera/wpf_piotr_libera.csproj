@@ -64,6 +64,9 @@
     <Compile Include="Models\Validation\NumericRule.cs" />
     <Compile Include="ViewModels\ShapesViewModel.cs" />
     <Compile Include="ViewModels\ShapeViewModel.cs" />
+    <Compile Include="Views\ShapeControl.xaml.cs">
+      <DependentUpon>ShapeControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShapesView.xaml.cs">
       <DependentUpon>ShapesView.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
     <Resource Include="icons\x.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\ShapeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShapesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

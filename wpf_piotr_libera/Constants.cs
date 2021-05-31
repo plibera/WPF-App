@@ -11,6 +11,6 @@ namespace wpf_piotr_libera
         public static double mainWindowMinWidth = 400;
         public static double mainWindowMinHeight = 200;
         public static double dialogWindowMinWidth = 280;
-        public static double dialogWindowMinHeight = 280;
+        public static double dialogWindowMinHeight = 270;
     }
 }

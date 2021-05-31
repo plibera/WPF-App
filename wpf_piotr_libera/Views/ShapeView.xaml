@@ -28,7 +28,8 @@
     <Grid MinHeight="232" MinWidth="260">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="85" />
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="120"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="32*" />
@@ -54,7 +55,7 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox Grid.Column="1" Grid.Row="1" Height="23" Margin="5, 0, 10, 0" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding Type}"/>
+        <TextBox IsReadOnly="True" Grid.Column="1" Grid.Row="1" Height="23" Margin="5, 0, 10, 0" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding Type}"/>
         <TextBox x:Name="XCoordTextbox" Grid.Column="1" Grid.Row="2" Height="23" Margin="5, 0, 10, 0" VerticalAlignment="Center" TextWrapping="Wrap">
             <TextBox.Text>
                 <Binding Path ="XCoordinate" UpdateSourceTrigger="PropertyChanged">
@@ -84,7 +85,7 @@
         </TextBox>
         <TextBox Grid.Column="1" Grid.Row="5" Height="23" Margin="5, 0, 10, 0" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding Text}"/>
 
-        <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+        <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
@@ -108,5 +109,7 @@
             </Button>
             <Button Grid.Column="1"  Content="Cancel" Command="{Binding Path=CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Center" Margin="10, 0, 0, 0" VerticalAlignment="Center" Width="75" Height="19"/>
         </Grid>
+
+        <local:ShapeControl Grid.Column="2" Grid.RowSpan="6"/>
     </Grid>
 </UserControl>
