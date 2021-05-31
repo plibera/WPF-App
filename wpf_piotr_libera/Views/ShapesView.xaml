@@ -27,6 +27,13 @@
             </ToolBar>
         </ToolBarTray>
         <ListView x:Name="ShapesListView" ItemsSource="{Binding Shapes}" SelectedItem="{Binding SelectedShape, Mode=TwoWay}" Margin="0,0,0,0.4" Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="ShapesListView_SelectionChanged">
+            <ListView.ContextMenu>
+                <ContextMenu Name="cm">
+                    <MenuItem Header="Add shape" Command="{Binding Path=AddCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+                    <MenuItem Header="Edit shape" Command="{Binding Path=EditCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+                    <MenuItem Header="Delete shape" Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Color" DisplayMemberBinding="{Binding Color}"/>
