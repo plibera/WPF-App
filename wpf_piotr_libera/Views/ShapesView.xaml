@@ -7,6 +7,16 @@
              mc:Ignorable="d" 
              Height="400" Width="700">
     <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Edit shapes">
+                <MenuItem Header="Add shape" Command="{Binding Path=AddCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+                <MenuItem Header="Edit shape" Command="{Binding Path=EditCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+                <MenuItem Header="Delete shape" Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+            </MenuItem>
+            <MenuItem Header="Window" >
+                <MenuItem Header="New window" Command="{Binding Path=NewWindowCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
+            </MenuItem>
+        </Menu>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <Button Content="Add" Command="{Binding Path=AddCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>

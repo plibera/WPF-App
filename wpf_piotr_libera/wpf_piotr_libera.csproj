@@ -102,7 +102,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="icons\circle.png" />
+    <Resource Include="icons\edit.png" />
+    <Resource Include="icons\exit.png" />
+    <Resource Include="icons\plus.png" />
+    <Resource Include="icons\square.png" />
+    <Resource Include="icons\triangle.png" />
+    <Resource Include="icons\x.png" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Views\ShapesView.xaml">
       <SubType>Designer</SubType>
