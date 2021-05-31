@@ -102,6 +102,7 @@
                         <Binding ElementName="ColorTextbox" Path="(Validation.HasError)" />
                         <Binding ElementName="XCoordTextbox" Path="(Validation.HasError)" />
                         <Binding ElementName="YCoordTextbox" Path="(Validation.HasError)" />
+                        <Binding ElementName="AreaTextbox" Path="(Validation.HasError)" />
                     </MultiBinding>
                 </Button.IsEnabled>
             </Button>

@@ -105,13 +105,13 @@ namespace wpf_piotr_libera.ViewModels
         public void NewWindow()
         {
             ShapesViewModel shapesViewModel = new ShapesViewModel(ShapesModel);
-            ((App)Application.Current).WindowService.Show(shapesViewModel, 300, 200);
+            ((App)Application.Current).WindowService.Show(shapesViewModel, Constants.mainWindowMinWidth, Constants.mainWindowMinHeight);
         }
 
         public void AddShape()
         {
             ShapeViewModel shapeViewModel = new ShapeViewModel(ShapesModel, null);
-            ((App)Application.Current).WindowService.ShowDialog(shapeViewModel, 280, 280);
+            ((App)Application.Current).WindowService.ShowDialog(shapeViewModel, Constants.dialogWindowMinWidth, Constants.dialogWindowMinHeight);
         }
 
         public void EditShape(Shape shape)

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:wpf_piotr_libera.Views"
              mc:Ignorable="d" 
-             MinHeight="400" MinWidth="700">
+             MinHeight="100" MinWidth="100">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
@@ -47,7 +47,7 @@
                     <GridViewColumn Header="X Coordinate" Width="80" DisplayMemberBinding="{Binding XCoordinate}"/>
                     <GridViewColumn Header="Y Coordinate" Width="80" DisplayMemberBinding="{Binding YCoordinate}"/>
                     <GridViewColumn Header="Area" Width="80" DisplayMemberBinding="{Binding Area}"/>
-                    <GridViewColumn Header="Text" Width="200" DisplayMemberBinding="{Binding Text}"/>
+                    <GridViewColumn Header="Text" Width="160" DisplayMemberBinding="{Binding Text}"/>
                 </GridView>
             </ListView.View>
         </ListView>
