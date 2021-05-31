@@ -75,7 +75,30 @@ namespace wpf_piotr_libera.ViewModels
         public void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             ItemCount = Shapes.Cast<object>().Count().ToString();
+            if (e.Action == NotifyCollectionChangedAction.Remove)
+            {
+                foreach (Shape item in e.OldItems)
+                {
+                    //Removed items
+                    item.PropertyChanged -= CollectionElementPropertyChanged;
+                }
+            }
+            else if (e.Action == NotifyCollectionChangedAction.Add)
+            {
+                foreach (Shape item in e.NewItems)
+                {
+                    //Added items
+                    item.PropertyChanged += CollectionElementPropertyChanged;
+                }
+            }
         }
+
+        public void CollectionElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            UpdateFilter();
+        }
+
+
 
         public Action Close { get; set; }
         private RelayCommand<object> addCommand;
@@ -100,6 +123,10 @@ namespace wpf_piotr_libera.ViewModels
             Shapes = collectionViewSource.View;
             ItemCount = Shapes.Cast<object>().Count().ToString();
             Shapes.CollectionChanged += this.OnCollectionChanged;
+            foreach (Shape item in Shapes)
+            {
+                item.PropertyChanged += CollectionElementPropertyChanged;
+            }
         }
 
         public void NewWindow()
